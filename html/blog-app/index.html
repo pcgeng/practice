@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above three meta tags must be placed at the top, any other content must be followed by! -->
-	<title>Code Challenge #1</title>
+	<title>My Blog App</title>
 
 	<!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -13,36 +13,17 @@
 	<style>
 
         html, body {
-        	height: 100%;
         	padding: 0;
         	margin: 0;
         }
 
-        nav, aside{
-        	position: absolute;
-        	top: 0;
-        	width: 300px;
-        	height: 100%;
-        	background: #333;
-        }
-
-        nav {
-        	left: 0;
-        }
-
-        aside {
-        	right: 0;
-        }
-
         article {
-        	margin: 0 300px;
-        	bottom: 0;
-        	background: #fff;
+        	margin: 0 250px;
         }
 
         button {
         	margin-top: 20px;
-        	margin-left: 30px;
+        	margin-left: 40px;
         }
 
         .template {
@@ -115,8 +96,7 @@
 		applied to the correct article.
 	-->
 	
-	<div class="container">  
-    	<nav></nav>
+	<div class="container">
     	<article>
     		<div class="row">
     			<div id="blogContent" class="col-md-9">
@@ -126,8 +106,8 @@
 			    			<div class="cateName">Edit</div>
 			    		</div>
 		  				<div class="caption">
-			    			<h4>Article title</h4>
-			            	<p>Summary of the article</p>
+			    			<h4>Article title goes here to introduce the content</h4>
+			            	<p>The article abstract is an independent essay with its special place. It is based on the summary of the article using the basis of a simple, clear, understandable, incisive language to the full text of the content to be summed up, leaving the backbone to the branches and extract the main information. The author's point of view, the main content of the article, research results, unique insights, these should be reflected in the summary.</p>
 		            	</div>
 	            	</div>
 	            	<div class="thumbnail template">
@@ -146,43 +126,41 @@
 					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">+ Add New</button>
 				</div>
 			</div>
+		</article>
 
-			<!-- Edit modal -->
-			<div class="modal fade" id="editModal" tabindex="-1" role="dialog">
-				<div class="modal-dialog" role="document" aria-hidden="true">
-					<div class="modal-content">
-			  			<div class="modal-header" style="border-bottom: 0">
-			    			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			    			<h4 class="modal-title">Edit Article</h4>
-			  			</div>
-			  			<form id="editForm">
-			  				<fieldset>
-					  			<div class="modal-body">
-								    <div class="form-group">
-								        <label for="imageUrl" class="control-label">Image</label>
-								        <input type="text" class="form-control" name="imageUrl" id="imageUrl">
-								    </div>
-								    <div class="form-group">
-								        <label for="title" class="control-label">Title</label>
-								        <input type="text" class="form-control" name="title" id="title">
-								    </div>
-								    <div class="form-group">
-								        <label for="content" class="control-label">Content</label>
-								        <textarea class="form-control" name="content" id="content"></textarea>
-								    </div>
-								    <div class="form-group" style="text-align: right">
-								      	<button type="button" id="saveBtn" class="btn btn-success">Save</button>
-								      	<button type="button" class="btn btn-default" data-dismiss="modal">Cancle</button>
-								    </div>
-					  			</div>
-				  			</fieldset>
-			  			</form>
-					</div>
+		<!-- Edit modal -->
+		<div class="modal fade" id="editModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document" aria-hidden="true">
+				<div class="modal-content">
+		  			<div class="modal-header" style="border-bottom: 0">
+		    			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		    			<h4 class="modal-title">Edit Article</h4>
+		  			</div>
+		  			<form id="editForm">
+		  				<fieldset>
+				  			<div class="modal-body">
+							    <div class="form-group">
+							        <label for="imageUrl" class="control-label">Image</label>
+							        <input type="text" class="form-control" name="imageUrl" id="imageUrl">
+							    </div>
+							    <div class="form-group">
+							        <label for="title" class="control-label">Title</label>
+							        <input type="text" class="form-control" name="title" id="title">
+							    </div>
+							    <div class="form-group">
+							        <label for="content" class="control-label">Content</label>
+							        <textarea class="form-control" name="content" id="content"></textarea>
+							    </div>
+							    <div class="form-group" style="text-align: right">
+							      	<button type="button" id="saveBtn" class="btn btn-success">Save</button>
+							      	<button type="button" class="btn btn-default" data-dismiss="modal">Cancle</button>
+							    </div>
+				  			</div>
+			  			</fieldset>
+		  			</form>
 				</div>
 			</div>
-    	    
-    	</article>
-    	<aside></aside>
+		</div>
 	<div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
