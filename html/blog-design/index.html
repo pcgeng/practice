@@ -21,24 +21,23 @@
         nav, aside{
         	position: absolute;
         	top: 0;
-        	background-color: #333;
+        	width: 300px;
         	height: 100%;
+        	background: #333;
         }
 
         nav {
         	left: 0;
-        	width: 300px;
         }
 
         aside {
         	right: 0;
-        	width: 300px;
         }
 
         article {
         	margin: 0 300px;
-        	height: 100%;
-        	background-color: #fff;
+        	bottom: 0;
+        	background: #fff;
         }
 
         button {
@@ -252,6 +251,11 @@
 				$('#editForm #title').val(title);
 				$('#editForm #content').val(content);                   
 				$('#editModal').modal('show');
+			});
+
+			// clear form data when the modal is closed
+			$('#editModal').on('hide.bs.modal', function() {
+				$('#editForm')[0].reset();
 			});
 		});	
     </script>
