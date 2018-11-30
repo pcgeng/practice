@@ -1,1 +1,1 @@
-# Personal practices for HTML5, CSS and JavaScript
+# Personal Practices for HTML, CSS and JavaScript
