@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this object</title>
+</head>
+
+<body>
+    <script>
+        function sayHi(a, b) {
+            console.log(this);
+            console.log(`${a} ${this.name}.`, b);
+        }
+
+        var name = "Jane";
+        var pc = {
+            name: "Plocen"
+        };
+        var a = "Hello, my name is";
+        var b = "Nice to meet you!";
+
+        // this: Object { name: 'Plocen' }
+        // Hello, my name is Plocen. Nice to meet you!
+        sayHi.call(pc, a, b);
+        sayHi.apply(pc, [a, b]);
+        sayHi.bind(pc, a, b)();
+
+        // this: Window {...}
+        // Hello, my name is Jane. Nice to meet you!
+        sayHi.call(null, a, b);
+        sayHi.apply(null, [a, b]);
+        sayHi.bind(null, a, b)();
+        sayHi.call(undefined, a, b);
+        sayHi.apply(undefined, [a, b]);
+        sayHi.bind(undefined, a, b)();
+    </script>
+</body>
+
+</html>

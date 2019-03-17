@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this pointing</title>
+</head>
+
+<body>
+    <script>
+        var name = "Window Object";
+        var object = {
+            name: "My Object",
+            getName: function () {
+                return function () {
+                    return this.name;
+                }
+            }
+        }
+        // step1: fn = object.getName(); => fn = function() { return this.name; }
+        // step2: console.log(fn()); => this = Window
+        console.log(object.getName()()); // Window Object
+
+        name = "The Window";
+        object.getName = function () {
+            var that = this;
+            return function () {
+                return that.name;
+            }
+        };
+        // step1: fn = object.getName(); => that = this = object
+        // step2: console.log(fn()); => that.name = object.name 
+        console.log(object.getName()()); // My Object
+    </script>
+</body>
+
+</html>

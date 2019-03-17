@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>deep clone</title>
+</head>
+
+<body>
+    <script>
+        function deepClone(obj) {
+            // Judge the input parameter whether is an array or object,
+            // then create an empty array or object for clone
+            let objClone = Array.isArray(obj) ? [] : {};
+            if (obj && typeof obj === "object") {
+                for (key in obj) {
+                    if (obj.hasOwnProperty(key)) {
+                        // Judge the child element of 'obj' whether is an object,
+                        // if so, recursively copy
+                        if (obj[key] && typeof obj[key] === "object") {
+                            objClone[key] = deepClone(obj[key]);
+                        } else {
+                            // if not, shallow copy
+                            objClone[key] = obj[key];
+                        }
+                    }
+                }
+            }
+            return objClone;
+        }
+
+        function deepClone2(obj) {
+            let _obj = JSON.stringify(obj),
+                objClone = JSON.parse(_obj);
+            return objClone;
+        }
+
+        let a = {
+            "name": "Plocen",
+            "age": 18,
+            "married": true,
+            "hobbies": ["development", "learning", "swimming"],
+            "spouse": {
+                "name": "Jane",
+                "age": 16,
+                "hobbies": ["reading", "writing"]
+            }
+        }, b = deepClone(a), c = deepClone2(a);
+        a.hobbies.push("running");
+        a.spouse.hobbies.push("traveling");
+        console.log(a, b, c);
+        // false false
+        console.log(a.hobbies === b.hobbies, a.hobbies === c.hobbies);
+        console.log(a.spouse.hobbies === b.spouse.spouse, a.spouse.hobbies === c.spouse.hobbies);
+    </script>
+</body>
+
+</html>
